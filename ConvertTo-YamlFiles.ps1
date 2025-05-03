@@ -44,8 +44,8 @@ param(
 )
 
 # Check if the YamlDotNet module is installed
-if (-not (Get-Module -Name YamlDotNet)) {
-    Write-Error "The 'YamlDotNet' PowerShell module is required. Please install it using: Install-Module -Name YamlDotNet"
+if (-not (Get-Module -Name powershell-yaml)) {
+    Write-Error "The 'powershell-yaml' PowerShell module is required. Please install it using: Install-Module -Name powershell-yaml"
     exit 1
 }
 
@@ -65,7 +65,7 @@ try {
     $CsvData = Import-Csv -Path $InputCsvPath
 
     # Get the headers from the first row (property names)
-    $Headers = $CsvData | Get-Member -MemberType NoteProperty | Select-Object -ExpandProperty Name
+    $Headers = $CsvData[0].psobject.Properties | Select-Object -ExpandProperty Name
 
     # Determine the filename column index
     if ($FilenameColumn -as [int] -ne $null) {
