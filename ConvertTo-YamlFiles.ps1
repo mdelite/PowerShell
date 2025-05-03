@@ -28,8 +28,8 @@ Defaults to the first column (index 0).
 .\ConvertTo-YamlFiles.ps1 -InputCsvPath ".\data.csv" -OutputDirectory ".\yaml_files" -FilenameColumn "ID"
 
 .NOTES
-Requires the 'YamlDotNet' PowerShell module to be installed.
-You can install it using: Install-Module -Name YamlDotNet
+Requires the 'powershell-yaml' PowerShell module to be installed.
+You can install it using: Install-Module -Name powershell-yaml
 #>
 [CmdletBinding()]
 param(
